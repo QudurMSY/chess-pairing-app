@@ -466,7 +466,7 @@ class TournamentCreatorUI(QWidget):
         # Pairing system
         self.pairing_system_combo = QComboBox()
         self.pairing_system_combo.addItems([
-            "Swiss System", "Dutch System", "Dubov System", "Berger Table",
+            "Dutch System", "Swiss System", "Dubov System", "Berger Table",
             "Burstein System", "Lim System", "Double Swiss System"
         ])
         self.pairing_system_combo.setToolTip("Select the pairing system for the tournament")
@@ -507,7 +507,7 @@ class TournamentCreatorUI(QWidget):
 
         # Tie-break system
         self.tie_break_combo = QComboBox()
-        self.tie_break_combo.addItems(["Buchholz", "Sonnenborn-Berger", "Progressive Score", "Direct Encounter"])
+        self.tie_break_combo.addItems(["Sonnenborn-Berger", "Buchholz", "Progressive Score", "Direct Encounter"])
         self.tie_break_combo.setToolTip("Primary tie-break system for standings")
         self.tie_break_combo.currentTextChanged.connect(self._update_summary)
         form_layout.addRow("Tie-Break:", self.tie_break_combo)

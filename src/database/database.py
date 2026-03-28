@@ -311,7 +311,7 @@ class Database:
                 "withdrawn": row[6],
                 "pairing_number": row[7],
                 "score": 0,
-                "tpn": row[4]
+                "tpn": row[7]
             }
             for row in rows
         ]

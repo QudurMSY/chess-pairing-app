@@ -46,7 +46,7 @@ class TournamentManagementUI(QWidget):
         pairing_system_label = QLabel("Pairing System:")
         self.pairing_system_input = QComboBox()
         self.pairing_system_input.addItems([
-            "Swiss", "Berger Table", "Burstein", "Dubov", "Lim", "Double Swiss"
+            "Dutch System", "Swiss System", "Berger Table", "Burstein", "Dubov", "Lim", "Double Swiss"
         ])
         
         is_team_label = QLabel("Is Team Tournament:")

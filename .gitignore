@@ -1,0 +1,6 @@
+__pycache__/
+*.pyc
+*.db
+memory_bank.json
+reproduce_unary_bug*.py
+_archive/

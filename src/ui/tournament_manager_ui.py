@@ -185,7 +185,7 @@ class TournamentManagerUI(QWidget):
         
         self.standings_table = QTableWidget()
         self.standings_table.setColumnCount(4)
-        self.standings_table.setHorizontalHeaderLabels(["Rank", "Name", "Score", "Buchholz"])
+        self.standings_table.setHorizontalHeaderLabels(["Rank", "Name", "Score", "SB"])
         self.standings_table.horizontalHeader().setSectionResizeMode(QHeaderView.Stretch)
         self.standings_table.verticalHeader().setDefaultSectionSize(50)
         standings_layout.addWidget(self.standings_table)
@@ -351,7 +351,7 @@ class TournamentManagerUI(QWidget):
                 item_game_points.setTextAlignment(Qt.AlignCenter)
                 self.standings_table.setItem(row, 3, item_game_points)
         else:
-            self.standings_table.setHorizontalHeaderLabels(["Rank", "Name", "Score", "Buchholz"])
+            self.standings_table.setHorizontalHeaderLabels(["Rank", "Name", "Score", "SB"])
             standings = self.tie_break.calculate_tie_breaks(self.current_tournament['id'])
             self.standings_table.setRowCount(len(standings))
             for row, p in enumerate(standings):
@@ -367,9 +367,9 @@ class TournamentManagerUI(QWidget):
                 item_score.setTextAlignment(Qt.AlignCenter)
                 self.standings_table.setItem(row, 2, item_score)
                 
-                item_buchholz = QTableWidgetItem(str(p['buchholz']))
-                item_buchholz.setTextAlignment(Qt.AlignCenter)
-                self.standings_table.setItem(row, 3, item_buchholz)
+                item_sb = QTableWidgetItem(f"{p['sonneborn_berger']:.2f}")
+                item_sb.setTextAlignment(Qt.AlignCenter)
+                self.standings_table.setItem(row, 3, item_sb)
 
         # Update Action Bar Button
         rounds = self.round_manager.get_rounds(self.current_tournament['id'])
@@ -734,9 +734,9 @@ class TournamentManagerUI(QWidget):
         elif format_type == "txt":
             filename, _ = QFileDialog.getSaveFileName(self, "Save Standings", f"standings_{self.current_tournament['name']}.txt", "Text Files (*.txt)")
             if filename:
-                headers = {"rank": "Rank", "name": "Name", "score": "Score", "buchholz": "Buchholz"}
+                headers = {"rank": "Rank", "name": "Name", "score": "Score", "sonneborn_berger": "SB"}
                 # Adjust format string based on headers
-                format_str = "{rank:<5} {name:<25} {score:<10} {buchholz:<10}"
+                format_str = "{rank:<5} {name:<25} {score:<10} {sonneborn_berger:<10}"
                 
                 self.report_generator.export_to_text(standings, filename, headers, format_str)
                 QMessageBox.information(self, "Success", f"Standings exported to {filename}")

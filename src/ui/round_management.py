@@ -134,6 +134,7 @@ class RoundManagementUI(QWidget):
         
         team_layout.addWidget(self.edit_lineup_btn)
         team_layout.addWidget(self.enter_board_results_btn)
+        team_layout.addStretch()
         
         layout.addWidget(self.team_result_group)
 

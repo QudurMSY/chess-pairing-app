@@ -150,7 +150,7 @@ class PairingGenerator:
             }
         return None
 
-    def _apply_fide_rules(self, players: List[Dict], tournament_id: int, round_number: int, pairing_system: str = "Swiss System") -> List[Dict]:
+    def _apply_fide_rules(self, players: List[Dict], tournament_id: int, round_number: int, pairing_system: str = "Dutch System") -> List[Dict]:
         """
         Apply FIDE rules to the player list before pairing.
         

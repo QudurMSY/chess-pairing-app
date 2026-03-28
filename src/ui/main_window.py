@@ -220,7 +220,7 @@ class MainWindow(QMainWindow):
             
             # Create tournament
             tournament_id = self.tournament_manager.create_tournament(
-                tournament_name, datetime.date.today().isoformat(), num_rounds, "Swiss System", False
+                tournament_name, datetime.date.today().isoformat(), num_rounds, "Dutch System", False
             )
             
             if tournament_id:

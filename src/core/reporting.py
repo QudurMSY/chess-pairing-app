@@ -15,7 +15,7 @@ class ReportGenerator:
         Generates a standings report for a tournament.
         Returns a list of dictionaries containing player standings.
         """
-        # TieBreak.calculate_tie_breaks returns standings sorted by Score, Buchholz, SB
+        # TieBreak.calculate_tie_breaks returns standings sorted by Score, SB, Buchholz
         standings = self.tie_break.calculate_tie_breaks(tournament_id)
         
         # Add rank

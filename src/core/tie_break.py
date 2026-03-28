@@ -228,7 +228,7 @@ class TieBreak:
     def calculate_tie_breaks(self, tournament_id: int) -> List[Dict]:
         """
         Calculate scores and tie-breaks for all players in a tournament.
-        Returns a list of dictionaries sorted by score (desc), then Buchholz (desc).
+        Returns a list of dictionaries sorted by score (desc), then Sonneborn-Berger (desc), then Buchholz (desc).
         """
         players = self.db.get_players(tournament_id)
         standings = []
@@ -255,7 +255,7 @@ class TieBreak:
                 "performance": performance
             })
 
-        # Sort by Score (desc), then Buchholz (desc), then Sonneborn-Berger (desc)
-        standings.sort(key=lambda x: (x['score'], x['buchholz'], x['sonneborn_berger']), reverse=True)
+        # Sort by Score (desc), then Sonneborn-Berger (desc), then Buchholz (desc)
+        standings.sort(key=lambda x: (x['score'], x['sonneborn_berger'], x['buchholz']), reverse=True)
         
         return standings
